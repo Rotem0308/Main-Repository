@@ -1,0 +1,29 @@
+﻿## Ignore Visual Studio temporary files, build results, and
+## include the virtual environments directory if used for Python projects
+## Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Ignore ASP.NET stuff
+*.aspstate
+*.bak
+*.cache
+*.db
+*.log
+*.ldf
+*.mdf
+*.ndf
+*.pdb
+
+## Others
+.vs/
+.vscode/
