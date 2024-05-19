@@ -1,0 +1,97 @@
+$primary-color: navy;
+$desktop: 1025px;
+$mobile: 768px;
+
+:host(.edit-modal-container) {
+  width: 100vw;
+  min-height: calc(100vh - 4rem);
+  background-color: rgba(64, 63, 63, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50vw;
+  min-height: 50vh;
+  @media (max-width: $mobile) {
+    width: 80vw;
+  }
+  gap: 0.5rem;
+
+  box-shadow: rgb(67, 69, 71) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.594) -3px -3px 6px 1px inset;
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    .close-modal-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: none;
+      font-weight: 700;
+      background-color: #5debd7;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 5rem;
+    row-gap: 0.2rem;
+
+    @media (max-width: $mobile) {
+      padding: 1rem 2rem;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+      label {
+        font-size: smaller;
+      }
+      input {
+        padding: 0.5rem 1rem;
+        border: none;
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3rem;
+
+      .edit-btn {
+        padding: 0.5rem 2rem;
+        border: none;
+        background: dodgerblue;
+        color: white;
+        cursor: pointer;
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: $mobile) {
+//
+// }

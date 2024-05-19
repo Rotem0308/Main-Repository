@@ -1,0 +1,47 @@
+<div class="header-container">
+  <div class="book-logo-container">
+    <div class="bg-color"></div>
+    <img src="/assets/books.png" alt="bookImage" />
+  </div>
+  <div class="flex-container">
+    <div class="search-header-container">
+      <div class="search-header">
+        <p>Read the Novels,</p>
+        <p>Journals,and Non-</p>
+        <p>Fictions you like</p>
+      </div>
+      <p class="search-sentence">let's embark on this journey together!</p>
+      <div class="search-container">
+        <input type="text" placeholder="Find Your Book" #searchValue />
+        <button
+          (click)="handleSearch(searchValue)"
+          (keydown)="handleSearch(searchValue)"
+        >
+          <app-search-icon></app-search-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="middle">
+  <p>View All Books</p>
+  <hr />
+  <img src="/assets/doraemon.png" alt="doraemon image" />
+</div>
+
+<div class="books-bg">
+  <div class="books-container">
+    <app-book-card
+      class="book-card-container"
+      [bookToShow]="book"
+      *ngFor="let book of booksToManipulate; let index = index"
+      (iconClick)="handleBookAction($event, book)"
+    ></app-book-card>
+  </div>
+  <app-pagination
+    [currentPage]="currentPage"
+    [limit]="limit"
+    (changedPageNumber)="getBooksByPage($event)"
+  ></app-pagination>
+</div>

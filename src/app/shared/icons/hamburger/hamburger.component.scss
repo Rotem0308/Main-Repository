@@ -1,0 +1,22 @@
+$mobile: 768px;
+
+.hamburger-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.5rem;
+  background: none;
+  border: none;
+  // cursor: pointer;
+  @media (max-width: $mobile) {
+    .line {
+      width: 2rem;
+      height: 5px;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: white;
+    }
+  }
+}

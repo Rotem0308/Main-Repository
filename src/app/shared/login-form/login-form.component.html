@@ -1,0 +1,40 @@
+<form
+  class="login-form"
+  [formGroup]="loginForm"
+  (ngSubmit)="handleSubmitLoginForm()"
+>
+  <div class="form-control">
+    <p class="title"><span>B</span>ookie</p>
+    <p class="subtitle">Login</p>
+  </div>
+
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input formControlName="email" type="text" placeholder="Email" id="email" />
+    <app-error-message
+      *ngIf="
+        this.loginForm.get('email')?.invalid &&
+        this.loginForm.get('email')?.touched
+      "
+      [error]="invalidEmailMessage()"
+    ></app-error-message>
+  </div>
+
+  <div class="form-control">
+    <label for="password">password</label>
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      id="password"
+    />
+    <app-error-message
+      *ngIf="
+        this.loginForm.get('password')?.invalid &&
+        this.loginForm.get('password')?.touched
+      "
+      [error]="invalidPasswordMessage()"
+    ></app-error-message>
+  </div>
+  <button type="submit" [disabled]="this.loginForm.invalid">Login</button>
+</form>

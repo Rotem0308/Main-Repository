@@ -1,0 +1,82 @@
+<app-checkout-modal
+  (buttonClick)="changeModalState()"
+  *ngIf="isModelOpen"
+></app-checkout-modal>
+
+<div class="cart-container" *ngIf="!isModelOpen">
+  <div class="cart-items-container">
+    <div class="items-header">
+      <p>Shopping Cart</p>
+      <p>{{ cartBooks ? cartBooks.length : 0 }} Items</p>
+    </div>
+
+    <div class="items-grid-container">
+      <div class="title">PRODUCT DETAILS</div>
+      <div class="title">QUANTITY</div>
+      <div class="title">PRICE</div>
+      <div class="title">TOTAL</div>
+      <ng-container *ngFor="let book of displayBooks; let index = index">
+        <div class="book-details-container item">
+          <img src="{{ book.imageUrl }}" alt="book image" />
+          <div class="book-details">
+            <p>{{ book.title | titlecase }}</p>
+            <p>{{ book.genre | titlecase }}</p>
+            <p>{{ book.author | titlecase }}</p>
+          </div>
+        </div>
+        <div class="quantity item">
+          <button class="action" (click)="RemoveBookFromCart(book.id)">
+            -
+          </button>
+          <input type="number" [value]="getQuantity(book.id)" />
+          <button class="action" (click)="AddBookToCart(book)">+</button>
+        </div>
+        <div class="price item">{{ book.price | currency }}</div>
+        <div class="total item">{{ getTotalPrice(book) | currency }}</div>
+      </ng-container>
+    </div>
+    <button routerLink="" class="back-shopping-btn">Continue Shopping</button>
+  </div>
+
+  <div class="cart-checkout-container">
+    <div class="checkout-header">
+      <p>Order Summary</p>
+    </div>
+    <div class="order-items-sum">
+      <p>ITEMS {{ cartBooks ? cartBooks.length : 0 }}</p>
+      <p>{{ totalPrice | currency }}</p>
+    </div>
+    <div class="shipping flex">
+      <p>Shipping</p>
+      <select>
+        <option value="standard">Standart Delivery - $5.00</option>
+        <option value="express">Express Delivery - $25.00</option>
+      </select>
+    </div>
+    <div class="discount-code flex">
+      <p>Promo Code</p>
+      <input type="text" placeholder="Enter your Code" />
+      <button>Apply</button>
+    </div>
+    <hr />
+    <div class="end-order">
+      <div class="total-cost">
+        <p>TOTAL COST</p>
+        <p>{{ totalPrice | currency }}</p>
+      </div>
+      <div class="user-discount">
+        <p *ngIf="user">
+          USER DISCOUNT {{ user.discount }}% :
+          <span>{{ userDiscount | currency }}</span>
+        </p>
+      </div>
+      <button
+        [disabled]="totalPrice <= 0.0"
+        (click)="checkOut()"
+        [ngClass]="{ 'disabled-class': totalPrice <= 0.0 }"
+      >
+        CHECKOUT
+      </button>
+    </div>
+  </div>
+</div>

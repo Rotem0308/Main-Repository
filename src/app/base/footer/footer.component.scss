@@ -1,0 +1,25 @@
+:host(.footer-container) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background-image: url("/assets/footer-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.links-container {
+  svg {
+    margin-left: 1rem;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+}

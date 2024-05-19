@@ -1,0 +1,73 @@
+<div class="main-container">
+  <div class="logo-navbar-container">
+    <div class="logo-container"><span>B</span>ookie.</div>
+    <div class="navbar-container">
+      <!-- <a routerLink="" *ngIf="isAdmin && isLoggedin">Dashboard</a> -->
+      <a routerLink="admin/dashboard" *ngIf="isAdmin">
+        <app-setting-icon class="setting-icon-container"></app-setting-icon>
+      </a>
+      <a routerLink="">Book Store</a>
+    </div>
+  </div>
+
+  <app-hamburger (click)="openNavList()"></app-hamburger>
+
+  <div class="user-container" [ngClass]="{ none: !isHamburgerOpen }">
+    <div class="user-cart-container">
+      <div class="cart-logo" routerLink="cart">
+        <div class="cart-count">{{ cartCount }}</div>
+        <app-cart class="cart"></app-cart>
+      </div>
+      <div class="user">
+        <div
+          class="user-logo"
+          [routerLink]="
+            !isLoggedin ? null : !isAdmin ? 'user/info' : 'admin/info'
+          "
+        >
+          <app-user-icon class="user-icon"></app-user-icon>
+
+          <div
+            class="is-loggedIn-sign"
+            [style.background-color]="isLoggedin ? 'green' : 'red'"
+          ></div>
+        </div>
+        <div class="user-name" *ngIf="isLoggedin">
+          <span class="special-span">Hi, </span>
+          <p>{{ user?.firstName }}</p>
+        </div>
+      </div>
+    </div>
+
+    <a
+      routerLink="user/login"
+      *ngIf="!isLoggedin"
+      class="login-link-container"
+      (click)="openNavList()"
+      >Log in</a
+    >
+    <a
+      routerLink="admin"
+      *ngIf="!isLoggedin"
+      class="login-link-container"
+      (click)="openNavList()"
+      >Admin</a
+    >
+    <a
+      routerLink="user/signup"
+      *ngIf="!isLoggedin"
+      class="login-link-container signup"
+      (click)="openNavList()"
+      >Sign Up</a
+    >
+
+    <a
+      routerLink=""
+      *ngIf="isLoggedin"
+      class="login-link-container"
+      (click)="handleLogoutButton()"
+      (click)="openNavList()"
+      >Logout</a
+    >
+  </div>
+</div>
