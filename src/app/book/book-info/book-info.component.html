@@ -1,0 +1,18 @@
+<div class="book-info-container">
+  <div class="image-container">
+    <img src="{{ book.imageUrl }}" alt="book Image" />
+  </div>
+  <div class="book-info">
+    <h1 class="title">{{ book.title | titlecase }}</h1>
+    <div class="desc-box line">
+      <p>Description:</p>
+      <p class="desc-info">{{ book.description }}</p>
+    </div>
+    <p class="author-box line">Author : {{ book.author }}</p>
+    <p class="genre-box line">Genre : {{ book.genre }}</p>
+    <p class="release-date-box line">
+      Date Released : {{ book.releaseDate | date }}
+    </p>
+    <p class="price-box">Price : {{ book.price | currency }}</p>
+  </div>
+</div>

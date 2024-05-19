@@ -1,0 +1,46 @@
+<!-- <div class="card-container">
+  <div class="img-container">
+    <img src="{{ book.imageUrl }}" alt="specific book Image" />
+    
+   <div class="icons">
+    <div class="icon-box" (click)="onIconClick("cart")">
+      <app-add-cart-icon class="cart"></app-add-cart-icon>    
+    </div>
+    
+    <div class="icon-box" (click)="onIconClick("info")"> 
+      <app-search-icon class="search"></app-search-icon>
+    </div>
+   </div>
+  </div>
+
+  <div class="book-details-container">
+    <p class="book-author">{{ book.author | titlecase }}</p>
+    <p class="book-title">{{ book.title | titlecase }}</p>
+    <div class="bottom-card">
+      <p class="book-price">{{ book.price | currency }}</p>
+    </div>
+  </div>
+</div> -->
+
+<div class="card-container">
+  <div class="img-container">
+    <img src="{{ book.imageUrl }}" alt="specific book Image" />
+    <div class="icons">
+      <div class="icon-box" (click)="onIconClick('cart')">
+        <app-add-cart-icon class="cart"></app-add-cart-icon>
+      </div>
+
+      <div class="icon-box" (click)="onIconClick('info')">
+        <app-search-icon class="search"></app-search-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-details-container">
+    <p class="book-author">{{ book.author | titlecase }}</p>
+    <p class="book-title">{{ book.title | titlecase }}</p>
+    <div class="bottom-card">
+      <p class="book-price">{{ book.price | currency }}</p>
+    </div>
+  </div>
+</div>
